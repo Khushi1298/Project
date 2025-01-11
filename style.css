@@ -11,119 +11,94 @@ body {
     line-height: 1.6;
 }
 /*Header section*/
-.container {
-    height: auto;
-    width: 90%;
-    margin: auto;
-    overflow: hidden;
-}
-
-
 header {
-    background: #ffff;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #ffff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
 }
-
-header nav ul {
+header img{
+    height: 50px;
+}
+nav ul {
     list-style: none;
     display: flex;
 }
 
-header nav ul li {
-    margin-right: 20px;
+nav ul li {
+    margin:0 10px;
 }
 
-header nav ul li a {
+ nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
     transition: color 0.3s ease;
 }
-header nav ul li a:hover{
+nav ul li a:hover{
     color: rgb(105, 204, 211);
 }
 
-header .search input {
-    padding: 8px;
-    border: 1px solid #ccc;
+.search input {
+    padding: 5px;
+    border: 1px solid #ddd;
     border-radius: 5px;
 }
-header .account i{
+ .account {
     font-size: 24px;
     color: #333;
     margin-right: 10px;
 }
-header .sign button {
-    padding: 5px 5px;
-    background:black;
+ .sign button {
+    padding: 5px 10px;
+    background-color:black;
     color: #fff;
+    border: none;
     cursor: pointer;
     border: none;
     border-radius: 5px;
     transition: background 0.3s ease;
 }
-header .sign button:hover{
+ .sign button:hover{
     background: #335;
 }
 /*centre image*/
-.image{
-    display: flex;          
-    justify-content: center;  
-    align-items: center;      
-    min-height: 300px;
-    background: #f9f9f9;
-}
 .image img{
     width: 100%;
     height: 200px;
     object-fit: contain;
 }
 /* Container for the Free books*/
-.freegrid{
-    color: rgb(10, 132, 10);
-    padding: 10px;
-    width: 90%;
-    margin: 0 auto;
+.section{
+ text-align: center;
+ padding: 20px;
 }
-.freegrid h1{
+.section h1{
+    color: #4caf50;
     text-align: center;
     font-size: 2rem;
     margin-bottom: 10px;
 }
-.freeb {
+.grid {
     display:grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
     gap: 15px;
     padding: 20px;
     border: 2px solid gray;
     border-radius: 5px;
-    max-width: 1200px;
-    margin: 0 auto;
-    background: #f7f7f7;
 }
 
 /* Styling each photo of freebooks container */
-.fb {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.item{
+    position: relative;
     overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.fb:hover {
+.item:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
-.fb img{
+.item img{
     padding-top: 8px;
     width: auto;
     height:200px;
@@ -147,17 +122,16 @@ header .sign button:hover{
     margin: 5px 0 0;
 }
 .viewmore{
-    width: 150px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 10px 20px;
     background-color: #4caf50;
     color: #fff;
     border: none;
+    height: 30px;
     border-radius: 5px;
-    font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    align-content: right;
+    
 }
 
 .viewmore:hover {
@@ -166,6 +140,16 @@ header .sign button:hover{
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+    header{
+        flex-wrap: wrap;
+    }
+    nav ul{
+        justify-content: center;
+        margin: 10px 0;
+    }
+    .account, .sign{
+        margin-top: 10px;
+    }
     .grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -176,32 +160,15 @@ header .sign button:hover{
         grid-template-columns: 1fr;
     }
 }
-.type{
-    display: flex;
-    gap: 20px;
-  }
-
-  .book {
-    position: relative;
-    width: 300px;
-    height: 400px;
-    overflow: hidden;
-  }
-
-  .book img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .book .overlay-text {
+ .overlay-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    padding: 10px 20px;
+    padding: 5px 10px;
+    cursor: pointer;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
